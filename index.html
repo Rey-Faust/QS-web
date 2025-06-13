@@ -73,18 +73,39 @@
     </div>
   </section>
 
-  <section>
-    <h3>项目展示</h3>
-    <div class="slider">
-      <div class="slides">
-        <img src="images/p1.jpeg" alt="项目一">
-        <img src="images/p2.jpeg" alt="项目二">
-        <img src="images/p3.jpeg" alt="项目三">
-        <img src="images/p4.jpeg" alt="项目四">
-        <img src="images/p5.jpeg" alt="项目五">
-      </div>
+<section>
+  <h3>项目展示</h3>
+  <div class="slider-manual">
+    <div class="slides-manual">
+      <img src="images/p1.jpeg" alt="项目一">
+      <img src="images/p2.jpeg" alt="项目二">
+      <img src="images/p3.jpeg" alt="项目三">
+      <img src="images/p4.jpeg" alt="项目四">
+      <img src="images/p5.jpeg" alt="项目五">
     </div>
-  </section>
+  </div>
+</section>
+
+<style>
+.slider-manual {
+  width: 90%;
+  margin: auto;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  display: flex;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0,0,0,0.1);
+  -webkit-overflow-scrolling: touch;
+  scroll-behavior: smooth;
+}
+.slides-manual img {
+  flex: 0 0 100%;
+  scroll-snap-align: start;
+  width: 100%;
+  height: auto;
+  border-radius: 8px;
+}
+</style>
 
   <section>
     <h3>关于我们</h3>
