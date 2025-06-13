@@ -2,7 +2,7 @@
 <html lang="zh">
 <head>
   <meta charset="UTF-8">
-  <title> QS Construction 侨水建筑 </title>
+  <title>QS Construction 侨水建筑</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <style>
     body { font-family: Arial, sans-serif; margin: 0; padding: 0; background: #f8f8f8; color: #333; }
@@ -19,32 +19,47 @@
       header h1 { font-size: 28px; }
       h3 { font-size: 24px; }
     }
-    .slider {
+
+    /* 手动点击轮播样式 */
+    .slider-container {
+      position: relative;
       width: 90%;
       margin: auto;
       overflow: hidden;
       border-radius: 8px;
       box-shadow: 0 0 10px rgba(0,0,0,0.1);
     }
+
+    .slider-wrapper {
+      width: 100%;
+      overflow: hidden;
+    }
+
     .slides {
       display: flex;
-      width: 400%;
-      animation: slide 4s infinite linear;
+      transition: transform 0.5s ease;
     }
+
     .slides img {
       width: 100%;
       height: auto;
+      flex-shrink: 0;
     }
-    @keyframes slide {
-      0% { transform: translateX(0%); }
-      25% { transform: translateX(0%); }
-      30% { transform: translateX(-100%); }
-      55% { transform: translateX(-100%); }
-      60% { transform: translateX(-200%); }
-      85% { transform: translateX(-200%); }
-      90% { transform: translateX(-300%); }
-      100% { transform: translateX(-300%); }
+
+    .prev, .next {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      background: rgba(0,0,0,0.5);
+      color: white;
+      border: none;
+      padding: 10px 20px;
+      cursor: pointer;
+      border-radius: 5px;
     }
+
+    .prev { left: 10px; }
+    .next { right: 10px; }
   </style>
 </head>
 <body>
@@ -73,39 +88,22 @@
     </div>
   </section>
 
-<section>
-  <h3>项目展示</h3>
-  <div class="slider-manual">
-    <div class="slides-manual">
-      <img src="images/p1.jpeg" alt="项目一">
-      <img src="images/p2.jpeg" alt="项目二">
-      <img src="images/p3.jpeg" alt="项目三">
-      <img src="images/p4.jpeg" alt="项目四">
-      <img src="images/p5.jpeg" alt="项目五">
+  <section>
+    <h3>项目展示</h3>
+    <div class="slider-container">
+      <button class="prev" onclick="prevSlide()">&#10094;</button>
+      <div class="slider-wrapper">
+        <div class="slides" id="slides">
+          <img src="images/p1.jpeg" alt="项目一">
+          <img src="images/p2.jpeg" alt="项目二">
+          <img src="images/p3.jpeg" alt="项目三">
+          <img src="images/p4.jpeg" alt="项目四">
+          <img src="images/p5.jpeg" alt="项目五">
+        </div>
+      </div>
+      <button class="next" onclick="nextSlide()">&#10095;</button>
     </div>
-  </div>
-</section>
-
-<style>
-.slider-manual {
-  width: 90%;
-  margin: auto;
-  overflow-x: auto;
-  scroll-snap-type: x mandatory;
-  display: flex;
-  border-radius: 8px;
-  box-shadow: 0 0 10px rgba(0,0,0,0.1);
-  -webkit-overflow-scrolling: touch;
-  scroll-behavior: smooth;
-}
-.slides-manual img {
-  flex: 0 0 100%;
-  scroll-snap-align: start;
-  width: 100%;
-  height: auto;
-  border-radius: 8px;
-}
-</style>
+  </section>
 
   <section>
     <h3>关于我们</h3>
@@ -127,8 +125,26 @@
     © 2025 QS Construction 侨水建筑. 版权所有.
   </footer>
 
-</body>
-</html>
+  <script>
+    let currentIndex = 0;
+    const slides = document.getElementById("slides");
+    const totalSlides = slides.children.length;
+
+    function showSlide(index) {
+      if (index < 0) index = totalSlides - 1;
+      if (index >= totalSlides) index = 0;
+      currentIndex = index;
+      slides.style.transform = `translateX(-${index * 100}%)`;
+    }
+
+    function prevSlide() {
+      showSlide(currentIndex - 1);
+    }
+
+    function nextSlide() {
+      showSlide(currentIndex + 1);
+    }
+  </script>
 
 </body>
 </html>
