@@ -13,11 +13,37 @@
     h3 { font-size: 28px; margin-bottom: 20px; text-align: center; }
     .services { display: flex; flex-wrap: wrap; gap: 20px; justify-content: center; }
     .service { flex: 1 1 300px; padding: 20px; border: 1px solid #ddd; border-radius: 8px; background: #fafafa; }
-    footer { text-align: center; padding: 20px; font-size: 14px; color: #666; }
     .contact div { margin-bottom: 10px; text-align: center; }
+    footer { text-align: center; padding: 20px; font-size: 14px; color: #666; }
     @media (max-width: 600px) {
       header h1 { font-size: 28px; }
       h3 { font-size: 24px; }
+    }
+    .slider {
+      width: 90%;
+      margin: auto;
+      overflow: hidden;
+      border-radius: 8px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    }
+    .slides {
+      display: flex;
+      width: 400%;
+      animation: slide 4s infinite linear;
+    }
+    .slides img {
+      width: 100%;
+      height: auto;
+    }
+    @keyframes slide {
+      0% { transform: translateX(0%); }
+      25% { transform: translateX(0%); }
+      30% { transform: translateX(-100%); }
+      55% { transform: translateX(-100%); }
+      60% { transform: translateX(-200%); }
+      85% { transform: translateX(-200%); }
+      90% { transform: translateX(-300%); }
+      100% { transform: translateX(-300%); }
     }
   </style>
 </head>
@@ -48,6 +74,19 @@
   </section>
 
   <section>
+    <h3>项目展示</h3>
+    <div class="slider">
+      <div class="slides">
+        <img src="images/project1.jpg" alt="项目一">
+        <img src="images/project2.jpg" alt="项目二">
+        <img src="images/project3.jpg" alt="项目三">
+        <img src="images/project4.jpg" alt="项目四">
+        <img src="images/project4.jpg" alt="项目五">
+      </div>
+    </div>
+  </section>
+
+  <section>
     <h3>关于我们</h3>
     <p style="text-align:center;">
       QS Construction 侨水建筑，秉承“品质第一，服务至上”的理念，拥有多年建筑行业经验，致力于为客户提供高效、专业、可靠的建筑服务。
@@ -57,7 +96,7 @@
   <section>
     <h3>联系我们</h3>
     <div class="contact">
-      <div>📞 +60 1339919788</div>
+      <div>📞 +60 1139919788</div>
       <div>📧 contact@qsconstruction.com</div>
       <div>📍 吉隆坡, 马来西亚</div>
     </div>
@@ -66,6 +105,9 @@
   <footer>
     © 2025 QS Construction 侨水建筑. 版权所有.
   </footer>
+
+</body>
+</html>
 
 </body>
 </html>
